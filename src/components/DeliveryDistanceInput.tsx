@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/components/inputStyles.css";
 
 interface DeliveryDistanceInputProps {
   value: number;
@@ -11,9 +12,10 @@ const DeliveryDistanceInput: React.FC<DeliveryDistanceInputProps> = ({
 }) => {
   return (
     <div>
-      <label htmlFor="deliveryDistance">Delivery Distance:</label>
+      <label htmlFor="deliveryDistance">Delivery Distance</label>
       <input
         type="number"
+        required
         id="deliveryDistance"
         value={value}
         onChange={(e) => onChange(parseFloat(e.target.value))}

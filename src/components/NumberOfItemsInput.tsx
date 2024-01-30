@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/components/inputStyles.css";
 
 interface NumberOfItemsInputProps {
   value: number;
@@ -11,9 +12,10 @@ const NumberOfItemsInput: React.FC<NumberOfItemsInputProps> = ({
 }) => {
   return (
     <div>
-      <label htmlFor="numberOfItems">Number of Items:</label>
+      <label htmlFor="numberOfItems">Number of Items</label>
       <input
         type="number"
+        required
         id="numberOfItems"
         value={value}
         onChange={(e) => onChange(parseFloat(e.target.value))}

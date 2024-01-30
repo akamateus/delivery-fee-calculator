@@ -1,0 +1,16 @@
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 0px solid #1b263b;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: "Omnes", sans-serif;
+  font-size: 16px;
+  color: #1b263b;
+  box-shadow: 0 4px 8px rgba(27, 38, 59, 0.1);
+}
+input:hover {
+  background-color: #63c8ff;
+  transition: 0.3s;
+}

@@ -7,6 +7,7 @@ import CalculateButton from "./CalculateButton";
 import DeliveryPriceResult from "./DeliveryPriceResult";
 import ResetButton from "./ResetButton";
 import calculateDeliveryFee from "../utils/calculateDeliveryFee";
+import "../styles/components/DeliveryFeeCalculator.css";
 
 const DeliveryFeeCalculator: React.FC = () => {
   // State for input values
@@ -19,6 +20,17 @@ const DeliveryFeeCalculator: React.FC = () => {
 
   // Function to handle calculation
   const handleCalculateDeliveryPrice = () => {
+    if (
+      cartValue <= 0 ||
+      deliveryDistance <= 0 ||
+      numberOfItems < 0 ||
+      orderTime === null
+    ) {
+      // Display an error message or handle invalid inputs in your preferred way
+      console.error("Invalid input values");
+      return;
+    }
+    // Inputs are valid, proceed with the calculation
     const calculatedFee = calculateDeliveryFee({
       cartValue,
       deliveryDistance,
@@ -39,6 +51,7 @@ const DeliveryFeeCalculator: React.FC = () => {
 
   return (
     <div>
+      <h1> Delivery Fee Calculator</h1>
       <CartValueInput value={cartValue} onChange={setCartValue} />
       <DeliveryDistanceInput
         value={deliveryDistance}
@@ -46,9 +59,13 @@ const DeliveryFeeCalculator: React.FC = () => {
       />
       <NumberOfItemsInput value={numberOfItems} onChange={setNumberOfItems} />
       <OrderTimeInput value={orderTime} onChange={setOrderTime} />
-      <CalculateButton onClick={handleCalculateDeliveryPrice} />
-      {deliveryPrice !== null && <ResetButton onClick={handleReset} />}
-      {deliveryPrice !== null && <DeliveryPriceResult value={deliveryPrice} />}
+      <div>
+        <CalculateButton onClick={handleCalculateDeliveryPrice} />
+        {deliveryPrice !== null && <ResetButton onClick={handleReset} />}
+        {deliveryPrice !== null && (
+          <DeliveryPriceResult value={deliveryPrice} />
+        )}
+      </div>
     </div>
   );
 };

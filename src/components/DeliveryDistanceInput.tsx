@@ -18,6 +18,7 @@ const DeliveryDistanceInput: React.FC<DeliveryDistanceInputProps> = ({
         value={value}
         onChange={(e) => onChange(parseFloat(e.target.value))}
       />
+      m
     </div>
   );
 };

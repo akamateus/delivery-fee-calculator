@@ -15,6 +15,7 @@ const CartValueInput: React.FC<CartValueInputProps> = ({ value, onChange }) => {
         value={value}
         onChange={(e) => onChange(parseFloat(e.target.value))}
       />
+      €
     </div>
   );
 };

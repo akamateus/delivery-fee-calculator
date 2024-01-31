@@ -1,46 +1,95 @@
-# Getting Started with Create React App
+# Delivery Fee Calculator App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+This React web app calculates the delivery fee based on cart value, delivery distance, number of items, and order time. The app follows specific rules for calculating the delivery fee, including surcharges, bulk fees, and time-based adjustments.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+1. [Project Setup](#1-project-setup)
+2. [Folder Structure](#2-folder-structure)
+3. [Components](#3-components)
+4. [Styling](#4-styling)
+5. [Logic Implementation](#5-logic-implementation)
+6. [Time-based Rule](#6-time-based-rule)
+7. [Testing](#7-testing)
+8. [Usage](#8-usage)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 1. Project Setup
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Clone the repository.
+- Run `npm install` to install dependencies.
+- Run `npm start` to start the development server.
 
-### `npm test`
+## 2. Folder Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The project follows the following structure:
 
-### `npm run build`
+DELIVERY-FEE-CALCULATOR/
+|-- src/
+| |-- components/
+| | |-- CartValueInput.tsx
+| | |-- DeliveryDistanceInput.tsx
+| | |-- NumberOfItemsInput.tsx
+| | |-- OrderTimeInput.tsx
+| | |-- CalculateButton.tsx
+| | |-- DeliveryPriceResult.tsx
+| | |-- ResetButton.tsx
+| | |-- DeliveryFeeCalculator.tsx
+| |-- styles/
+| | |-- global.css
+| | |-- components/
+| |-- utils/
+| | |-- calculateDeliveryFee.ts
+| |-- App.tsx
+| |-- App.css
+| |-- index.tsx
+| |-- index.css
+| |-- ...
+|
+|-- public/
+|-- node_modules/
+|-- ... (other project files)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 3. Components
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The app is divided into the following components:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `CartValueInput`: Input for cart value.
+- `DeliveryDistanceInput`: Input for delivery distance.
+- `NumberOfItemsInput`: Input for the number of items.
+- `OrderTimeInput`: Input for the order time.
+- `CalculateButton`: Button to trigger the delivery fee calculation.
+- `DeliveryPriceResult`: Component to display the calculated delivery fee.
+- `ResetButton`: Button to reset the calculator.
+- `DeliveryFeeCalculator`: Main component integrating all inputs and buttons.
 
-### `npm run eject`
+## 4. Styling
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- `global.css`: Global styling.
+- `components/`: Individual styling for each component, but being honest the calculator is very simple.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 5. Logic Implementation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- `calculateDeliveryFee.ts`: Utility function containing the logic for calculating the delivery fee based on specified rules by [Wolt Engineering Internship 2024](https://github.com/woltapp/engineering-internship-2024).
+  - The logic follows the rules provided in the internship assignment, considering cart value, delivery distance, number of items, and order time.
+  - Surcharges, bulk fees, and time-based adjustments are applied as per the provided specifications.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 6. Time-based Rule
 
-## Learn More
+The Friday rush hours rule is implemented in the `handleCalculateDeliveryPrice` function within `DeliveryFeeCalculator.tsx`. The fee is adjusted if the order is made between 3 - 7 PM.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 7. Testing (Pending)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Testing procedures and test cases have not been implemented yet. It is recommended to thoroughly test the application with various inputs and scenarios to ensure the correct functionality of the delivery fee calculator.
+
+Unfortunately, due to time constraints, detailed testing has not been conducted. Future iterations of the project should include comprehensive testing to validate the accuracy and robustness of the application. Sorry 😞
+
+## 8. Usage
+
+- Input the cart value, delivery distance, number of items, and order time.
+- Click the "Calculate Delivery Price" button to see the calculated fee.
+- Optionally, use the "Reset" button to clear inputs and results.
+
+Thaaaanks 🌈
+Matt

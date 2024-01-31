@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/components/inputStyles.css";
 
 interface OrderTimeInputProps {
   value: Date;
@@ -8,9 +9,10 @@ interface OrderTimeInputProps {
 const OrderTimeInput: React.FC<OrderTimeInputProps> = ({ value, onChange }) => {
   return (
     <div>
-      <label htmlFor="orderTime">Order Time:</label>
+      <label htmlFor="orderTime">Order Time</label>
       <input
         type="datetime-local"
+        required
         id="orderTime"
         value={value.toISOString().substring(0, 16)}
         onChange={(e) => onChange(new Date(e.target.value))}

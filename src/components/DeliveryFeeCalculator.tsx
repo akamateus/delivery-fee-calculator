@@ -5,3 +5,4 @@ import NumberOfItemsInput from "./NumberOfItemsInput";
 import OrderTimeInput from "./OrderTimeInput";
 import CalculateButton from "./CalculateButton";
 import DeliveryPriceResult from "./DeliveryPriceResult";
+import calculateDeliveryFee from "../utils/calculateDeliveryFee";
